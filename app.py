@@ -1,26 +1,54 @@
 from flask import Flask
+from uuid import UUID
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return "Hello Flask"
+    return "Home Page"
 
-@app.route("/users")
-def users():
-    return "Welcome to Users page"
-@app.route("/user/<name>")
-def user(name):
-    return f"Hello {name}"
+@app.route("/user/<int:id>")
+def user(id):
+    return f"Hello User {id}"
 
-@app.route("/student/<name>/<course>")
-def student(name,course):
-    return f"Hello {name} is learning {course}"
+@app.route("/price/<float:amount>")
+def price(amount):
+    return f"Hello User {amount}"
 
-@app.route("/about")
-def about():
-    return "Welcome to About Page"
+@app.route("/account/<string:name>")
+def account(name):
+    return f"Hello User {name}"
 
-@app.route("/contacts")
-def contacts():
-    return "Contacts Page"
+# Path Converter
+@app.route("/files/<path:file_path>")
+def files(file_path):
+    return file_path
+
+# UUID
+
+@app.route("/student/<uuid:user_id>")
+def student(user_id):
+    return str(user_id)
+
+
+# @app.route("/users")
+# def users():
+#     return "Welcome to Users page"
+
+
+# @app.route("/student/<name>/<course>")
+# def student(name,course):
+#     return f"Hello {name} is learning {course}"
+
+# @app.route("/about")
+# def about():
+#     return "Welcome to About Page"
+
+# @app.route("/contacts")
+# def contacts():
+#     return "Contacts Page"
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
