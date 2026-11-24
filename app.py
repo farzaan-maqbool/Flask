@@ -1,32 +1,30 @@
-from flask import Flask
+from flask import Flask, request
 from uuid import UUID
 app = Flask(__name__)
-@app.route("/")
-def home():
-    return "Home Page"
 
-@app.route("/user/<int:id>")
-def user(id):
-    return f"Hello User {id}"
 
-@app.route("/price/<float:amount>")
-def price(amount):
-    return f"Hello User {amount}"
+# @app.route("/user/<int:id>")
+# def user(id):
+#     return f"Hello User {id}"
 
-@app.route("/account/<string:name>")
-def account(name):
-    return f"Hello User {name}"
+# @app.route("/price/<float:amount>")
+# def price(amount):
+#     return f"Hello User {amount}"
 
-# Path Converter
-@app.route("/files/<path:file_path>")
-def files(file_path):
-    return file_path
+# @app.route("/account/<string:name>")
+# def account(name):
+#     return f"Hello User {name}"
+
+# # Path Converter
+# @app.route("/files/<path:file_path>")
+# def files(file_path):
+#     return file_path
 
 # UUID
 
-@app.route("/student/<uuid:user_id>")
-def student(user_id):
-    return str(user_id)
+# @app.route("/student/<uuid:user_id>")
+# def student(user_id):
+#     return str(user_id)
 
 
 # @app.route("/users")
@@ -45,6 +43,21 @@ def student(user_id):
 # @app.route("/contacts")
 # def contacts():
 #     return "Contacts Page"
+
+
+# Query Parameters
+
+# @app.route("/search")
+# def search():
+#     name = request.args.get("name","Guest") #Guest because default if name not available
+#     return f"Hello {name}"
+
+@app.route("/search")
+def search():
+    name = request.args.get("name","Guest") #Guest because default if name not available
+    course = request.args.get("course","Unknown")
+    return f"{name} is learning {course}"
+
 
 
 
