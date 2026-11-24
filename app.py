@@ -7,12 +7,20 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    name = "Mohit"
-    course = "Flask"
+    first_name = "Mohit"
+    last_name = "Kumar"
     city = "Delhi"
-    return render_template("index.html", name=name,
+    price = 500
+    course=[
+        "Flask",
+        "Django",
+        "FastAPI"
+    ]
+    return render_template("index.html", first_name=first_name,
+                           last_name=last_name,
                            course=course,
-                           city=city)
+                           city=city,
+                           price=price)
 
 
 
