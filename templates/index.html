@@ -6,14 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    
+    {% if marks >= 90%}
+    <h1>Grade A</h1>
+    {% elif marks >= 75 %}
+    <h1>Grade B</h1>
+    {% elif marks >= 50 %}
+    <h1>Grade C</h1>
+    {% else %}
+    <h1>Fail</h1>
+    {% endif %}
 
-    {#Welcome to page #}
-    <h1>Hello, {{first_name | upper}}  {{last_name}}</h1>
-    <h1>Total Course are, {{course | length}}</h1>
-    <h1>Hello, {{city}}</h1>
-    <P>Original Price : {{price}}</P>
-    <p>GST Included Price: {{price+90}}</p>
-
-    <p>{{10+20}}</p>
+    
 </body>
 </html>
