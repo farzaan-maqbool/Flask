@@ -8,10 +8,18 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     
-    is_logged_in = True
-    marks = 75
-    
-    return render_template("index.html",is_logged_in=is_logged_in,marks=marks)
+    courses = [
+        "Python",
+        "Flask",
+        "React",
+        "Django"
+    ]
+    student = {
+        "name":"Mohit",
+        "course":"Flask",
+        "City" : "Delhi"
+    }
+    return render_template("index.html",courses=courses,student=student)
 
 
 

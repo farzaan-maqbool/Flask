@@ -6,16 +6,24 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Courses</h1>
+
+    {% for course in courses %}
+
+    <h2>{{course}}</h2>
+    {% endfor %}
+
     
-    {% if marks >= 90%}
-    <h1>Grade A</h1>
-    {% elif marks >= 75 %}
-    <h1>Grade B</h1>
-    {% elif marks >= 50 %}
-    <h1>Grade C</h1>
-    {% else %}
-    <h1>Fail</h1>
-    {% endif %}
+    
+    
+    <ul>
+        {% for key,value in student.items() %}
+        <li>{{key}}{{value}}</li>
+        {% endfor %}
+
+    </ul>
+    
+   
 
     
 </body>
